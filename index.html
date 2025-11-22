@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Super Mario Infinite Runner - Jump, collect coins, and avoid enemies in this endless platformer game!">
+    <meta name="theme-color" content="#5c94fc">
+    <title>Super Mario Infinite Runner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="game-container">
+            <div class="hud">
+                <div class="hud-item">
+                    <span class="hud-label">SCORE</span>
+                    <span id="score" class="hud-value">0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">COINS</span>
+                    <span id="coins" class="hud-value">0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">LIVES</span>
+                    <span id="lives" class="hud-value">3</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">DISTANCE</span>
+                    <span id="distance" class="hud-value">0</span>
+                </div>
+                <button id="pauseBtn" class="pause-btn" aria-label="Pause Game">⏸</button>
+            </div>
+            
+            <canvas id="gameCanvas" width="800" height="600" style="touch-action: none;"></canvas>
+            
+
+            
+            <!-- Start Screen -->
+            <div id="startScreen" class="screen">
+                <h1 class="game-title">SUPER MARIO<br><span class="subtitle">INFINITE RUNNER</span></h1>
+                
+                <div class="controls-info">
+                    <h3>🎮 Controls</h3>
+                    <p>⬅️➡️ Arrow Keys / WASD: Move</p>
+                    <p>⌨️ Space / W / ↑: Jump</p>
+                    <p>⏸️ ESC / P: Pause</p>
+                    <p>📱 Mobile: Tap screen to jump, tilt to move</p>
+                    <p>🔊 Audio enabled on start</p>
+                </div>
+                
+                <div class="image-upload-section">
+                    <h3>Customize Characters (Optional)</h3>
+                    <div class="upload-grid">
+                        <div class="upload-item">
+                            <label>Player:</label>
+                            <input type="file" id="playerImage" accept="image/*">
+                        </div>
+                       
+                    </div>
+                </div>
+                
+                             <button id="startBtn" class="game-btn">START GAME</button>
+                <div class="version">v1.0.0 | Made by Arjun 💻</div>
+            </div>
+            
+            <!-- Pause Screen -->
+            <div id="pauseScreen" class="screen hidden">
+                <h1>PAUSED</h1>
+                <button id="resumeBtn" class="game-btn">RESUME</button>
+                <button id="restartFromPauseBtn" class="game-btn secondary">RESTART</button>
+                <button id="quitBtn" class="game-btn secondary">QUIT</button>
+            </div>
+            
+            <!-- Game Over Screen -->
+            <div id="gameOverScreen" class="screen hidden">
+                <h1>GAME OVER</h1>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Score:</span>
+                        <span id="finalScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Distance:</span>
+                        <span id="finalDistance" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Coins:</span>
+                        <span id="finalCoins" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best Score:</span>
+                        <span id="bestScore" class="stat-value">0</span>
+                    </div>
+                </div>
+                <button id="restartBtn" class="game-btn">PLAY AGAIN</button>
+                <button id="menuBtn" class="game-btn secondary">MAIN MENU</button>
+            </div>
+            
+            <!-- Loading Screen -->
+            <div id="loadingScreen" class="screen">
+                <div class="loader"></div>
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
