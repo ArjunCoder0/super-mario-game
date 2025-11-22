@@ -1150,6 +1150,12 @@ function setupEventListeners() {
 function initialize() {
     console.log('🎮 Initializing game...');
     
+    // Verify canvas
+    if (!canvas || !ctx) {
+        console.error('❌ Canvas not found!');
+        return;
+    }
+    
     // Adjust for mobile
     adjustCanvasForMobile();
     
@@ -1167,17 +1173,15 @@ function initialize() {
         bestScoreEl.textContent = bestScore;
     }
 
-    // Hide loading screen
-    setTimeout(() => {
-        const loadingScreen = document.getElementById('loadingScreen');
-        const startScreen = document.getElementById('startScreen');
-        
-        if (loadingScreen) loadingScreen.classList.add('hidden');
-        if (startScreen) startScreen.classList.remove('hidden');
-        
-        gameState = 'start';
-        console.log('✅ Game ready!');
-    }, 500);
+    // Hide loading screen immediately
+    const loadingScreen = document.getElementById('loadingScreen');
+    const startScreen = document.getElementById('startScreen');
+    
+    if (loadingScreen) loadingScreen.classList.add('hidden');
+    if (startScreen) startScreen.classList.remove('hidden');
+    
+    gameState = 'start';
+    console.log('✅ Game ready!');
 
     gameLoop();
 }
